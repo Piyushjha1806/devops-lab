@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini OTT Platform</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>My Mini OTT Platform</h1>
+
+  <div class="container">
+    <div class="video-thumb" onclick="playVideo('videos/video-1.mp4')">
+      <img src="https://via.placeholder.com/200x120.png?text=Video+1" alt="Video 1">
+      <p>Video 1</p>
+    </div>
+
+    <div class="video-thumb" onclick="playVideo('videos/video-2.mp4')">
+      <img src="https://via.placeholder.com/200x120.png?text=Video+2" alt="Video 2">
+      <p>Video 2</p>
+    </div>
+
+    <div class="video-thumb" onclick="playVideo('videos/video-3.mp4')">
+      <img src="https://via.placeholder.com/200x120.png?text=Video+3" alt="Video 3">
+      <p>Video 3</p>
+    </div>
+
+    <div class="video-thumb" onclick="playVideo('videos/video-4.mp4')">
+      <img src="https://via.placeholder.com/200x120.png?text=Video+4" alt="Video 4">
+      <p>Video 4</p>
+    </div>
+  </div>
+
+  <div class="video-player" id="playerBox">
+    <video id="mainVideo" controls autoplay></video>
+    <br>
+    <button onclick="closePlayer()">Close</button>
+  </div>
+
+  <script>
+    function playVideo(src) {
+      const video = document.getElementById('mainVideo');
+      const playerBox = document.getElementById('playerBox');
+      video.src = src;
+      playerBox.style.display = 'block';
+      video.play();
+    }
+
+    function closePlayer() {
+      const video = document.getElementById('mainVideo');
+      const playerBox = document.getElementById('playerBox');
+      video.pause();
+      video.currentTime = 0;
+      playerBox.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
